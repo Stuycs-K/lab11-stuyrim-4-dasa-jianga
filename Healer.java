@@ -58,8 +58,8 @@ public class Healer extends Adventurer{
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Gives a coffee to "+other+" and restores "
-    + other.restoreSpecial(5)+" "+other.getSpecialName();
+    if (other.getHP() )
+    return "Gives a coffee to " + other + " and restores " + " "+other.getSpecialName();
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
