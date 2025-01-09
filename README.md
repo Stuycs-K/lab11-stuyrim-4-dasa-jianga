@@ -18,8 +18,8 @@ Make a clear list of features that work/dont work
 
 ## Healer Subclass
 ### Stats
-- HP: 35
-- Life Force (Special Resource): 40 max
+- **HP**: 35
+- **Life Force** (Special Resource): 40 max
 ### Perk
 - **Self-Sustain** - Recovers 1 HP and 2 Life Force every turn
 ### Attack
@@ -32,13 +32,13 @@ Make a clear list of features that work/dont work
 
 ## Mage Subclass
 ### Stats
-- HP: 18
-- Mana (Special Resource): 50 max
+- **HP**: 18
+- **Mana** (Special Resource): 50 max
 ### Perk
 - **Vampire** - Defeating an enemy restores HP to max.
 ### Attack
 - **Wand of Fire** (Normal Attack) - Deals 4 damage. Restores 7 mana.
 ### Special
-- **Earthquake** (Special Attack)- Deals 10 damage to all enemies. Costs 20 Mana and restores 3 HP.
+- **Earthquake** (Special Attack) - Deals 10 damage to all enemies. Costs 20 Mana and restores 3 HP.
 ### Support
-- **Double Damage**- User selects a specific character to give double damage on the next attack. The Mage can be chosen to support itself. Costs 30 Mana and 3 HP.
+- **Double Damage** - User selects a specific character to give double damage on the next attack. The Mage can be chosen to support itself. Costs 30 Mana and 3 HP.
