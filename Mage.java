@@ -7,7 +7,7 @@ public abstract class Mage extends Adventurer{
   }
   private int mana, manaMax;
   public String getSpecialName(){
-    return "Earthquake";
+    return "Mana";
   }
   public int getSpecial(){
     this.mana;
