@@ -21,10 +21,24 @@ Make a clear list of features that work/dont work
 - HP: 35
 - Life Force (Special Resource): 40 max
 ### Perk
-- **Self-Sustain** - Recovers 1 HP and 2 Life Force every turn 
-### Attack 
+- **Self-Sustain** - Recovers 1 HP and 2 Life Force every turn
+### Attack
 - **Smack** - Deals 2 damage and restores 5 Life Force.
 ### Special
 - **Group Healing** - Heals all alive allies for 12 HP. Costs 20 Life Force. Healing past max HP is kept as overflow.
-### Support 
+### Support
 - **Restoration** - Heals an alive ally for 4 HP and restores 3 Life Force.
+
+
+## Mage Subclass
+### Stats
+- HP: 18
+- Mana (Special Resource): 50 max
+### Perk
+- **Vampire** - Defeating an enemy restores HP to max.
+### Attack
+- **Wand of Fire** (Normal Attack) - Deals 4 damage. Restores 7 mana.
+### Special
+- **Earthquake** (Special Attack)- Deals 10 damage to all enemies. Costs 20 Mana and restores 3 HP.
+### Support
+- **Double Damage**- User selects a specific character to give double damage on the next attack. The Mage can be chosen to support itself. Costs 30 Mana and 3 HP.
