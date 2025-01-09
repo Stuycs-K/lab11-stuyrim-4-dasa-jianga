@@ -16,15 +16,15 @@ Make a clear list of features that work/dont work
 :beetle: This is a bug that affects the game.
 
 
-##Healer Subclass
-###Stats
+## Healer Subclass
+### Stats
 - HP: 35
 - Life Force (Special Resource): 40 max
-###Perk
+### Perk
 - **Self-Sustain** - Recovers 1 HP and 2 Life Force every turn 
-###Attack 
+### Attack 
 - **Smack** - Deals 2 damage and restores 5 Life Force.
-###Special
+### Special
 - **Group Healing** - Heals all alive allies for 12 HP. Costs 20 Life Force. Healing past max HP is kept as overflow.
-###Support 
+### Support 
 - **Restoration** - Heals an alive ally for 4 HP and restores 3 Life Force.
