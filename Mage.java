@@ -11,6 +11,9 @@ public abstract class Mage extends Adventurer{
     this.mana = 25;
     this.manaMax = 50;
   }
+  public String getName(){
+    return "Donald";
+  }
   public String getSpecialName(){
     return "Mana";
   }
@@ -30,11 +33,7 @@ public abstract class Mage extends Adventurer{
       this.mana = this.manaMax;
     }
   }
-
-  public void applyDamage(int amount){
-    this.HP -= amount;
-  }
-
+/* Deals 4 damage while gaining 7 Mana*/
   public String attack(Adventurer other){
     int damage = 4;
     restoreSpecial(7);
@@ -44,8 +43,21 @@ public abstract class Mage extends Adventurer{
       restoreSpecial(this.manaMax);
     }
   }
-  public String specialAttack(ArrayList<Adventurer> party){
 
+/* Uses mana in order to attack AoE*/
+  public String specialAttack(ArrayList<Adventurer> party, int a){
+    this.mana -= 20;
+    this.hp += 3;
+    for(int x = 0; x < party.size(); x++){
+      party.get(x).hp -= 10;
+    }
+    return this.getName() + " attacked all opponents and dealt 10 points of damage to each while gaining 3HP. Mana is now: " + this.mana;
   }
 
+/*User selects a character to give  double damage to on next attack. Costs 30 Mana and 3 HP*/
+  public String support(Adventurer other){
+    this.mana -= 30;
+    this.hp -= 3;
+    
+  }
 }
