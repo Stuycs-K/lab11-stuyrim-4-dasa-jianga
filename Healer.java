@@ -1,3 +1,4 @@
+import java.util.*;
 public class Healer extends Adventurer{
   int lifeforce, lifeforceMax;
   /*the other constructors ultimately call the constructor
@@ -32,7 +33,7 @@ public class Healer extends Adventurer{
     return lifeforceMax;
   }
 
-  /*Deal 2-7 damage to opponent, restores 2 caffeine*/
+  /*Smack - Deals 2 damage and restores 5 Life Force.*/
   public String attack(Adventurer other){
     int damage = 2;
     other.applyDamage(damage);
@@ -40,32 +41,44 @@ public class Healer extends Adventurer{
     return this + " smacked "+ other + " and dealt "+ damage;
   }
 
-  /*Deal 3-12 damage to opponent, only if caffeine is high enough.
-  *Reduces caffeine by 8.
-  */
-  public String specialAttack(Adventurer other){
-    if(getSpecial() >= 8){
-      setSpecial(getSpecial()-8);
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
-      other.applyDamage(damage);
-      return this + " used their "+preferredLanguage+
-      " skills to hack the matrix. "+
-      " This glitched out "+other+" dealing "+ damage +" points of damage.";
+  /*Group Healing - Heals all alive allies for 12 HP. 
+  Costs 20 Life Force. Healing past max HP is kept as overflow.*/
+  public String specialAttack(ArrayList<Adventurer> party){
+    if(getSpecial() >= 20){
+      setSpecial(getSpecial()-20);
+      for (int i = 0; i < party.size(); i++) {
+        party.get(i).setHP(party.get(i).getHP()+ 12);
+      }
+      return "Healed whole team for 12 HP!";
     }else{
-      return "Not enough caffeine to use the ultimate code. Instead "+attack(other);
+      return "Not enough life force. Turn ended.";
     }
 
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    if (other.getHP() )
-    return "Gives a coffee to " + other + " and restores " + " "+other.getSpecialName();
+    if (other.getHP() + 4 > other.getmaxHP()) {
+      int heal = other.getmaxHP() - other.getHP();
+      other.setHP(other.getmaxHP());
+      return "Heals " + other + " and restores " + heal + " HP";
+    }
+    else {
+      int heal = 4;
+      other.setHP(other.getHP()+4);
+      return "Heals " + other + " and restores " + heal + " HP";
+    }
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
-    int hp = 1;
-    setHP(getHP()+hp);
-    return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
-    + getSpecialName()+ " and "+hp+" HP";
+    if (this.getHP() + 4 > this.getmaxHP()) {
+      int heal = this.getmaxHP() - this.getHP();
+      this.setHP(this.getmaxHP());
+      return "Restores " + heal + " HP";
+    }
+    else {
+      int heal = 4;
+      this.setHP(this.getHP()+4);
+      return "Heals " + this + " and restores " + heal + " HP";
+    }
   }
 }
