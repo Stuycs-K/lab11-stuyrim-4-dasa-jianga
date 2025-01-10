@@ -41,9 +41,9 @@ public class Healer extends Adventurer{
     return this + " smacked "+ other + " and dealt "+ damage;
   }
 
-  /*Group Healing - Heals all alive allies for 12 HP. 
+  /*Group Healing - Heals all alive allies for 12 HP.
   Costs 20 Life Force. Healing past max HP is kept as overflow.*/
-  public String specialAttack(ArrayList<Adventurer> party){
+  public String specialAttack(ArrayList<Adventurer> party, int i){
     if(getSpecial() >= 20){
       setSpecial(getSpecial()-20);
       for (int i = 0; i < party.size(); i++) {
