@@ -13,9 +13,20 @@ public abstract class Mage extends Adventurer{
     this.mana;
   }
   public int getSpecialMax(){
+    this.manaMax = 50;
     return 50;
   }
   public void setSpecial(int n){
-    if(n < )
+    if(n < this.manaMax){
+      this.mana = n;
+    }
+    else{
+      this.mana = this.manaMax;
+    }
   }
+  
+  public String specialAttack(ArrayList<Adventurer> party){
+
+  }
+
 }
