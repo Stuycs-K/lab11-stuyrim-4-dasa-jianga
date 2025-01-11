@@ -1,5 +1,5 @@
 import java.util.*;
-public abstract class Mage extends Adventurer{
+public class Mage extends Adventurer{
   private int mana, manaMax;
   public Mage(String name){
     this(name,18);
@@ -9,6 +9,7 @@ public abstract class Mage extends Adventurer{
     this.mana = 25;
     this.manaMax = 50;
   }
+
   public String getName(){
     return "Donald";
   }
@@ -56,6 +57,13 @@ public abstract class Mage extends Adventurer{
   public String support(Adventurer other){
     this.mana -= 30;
     this.setHP(getHP()-3);
+    return "";
+  }
+  /*
+   * IMPLEMENT THIS - THIS IS JUST A TEMPORARY COMPILE FIX;
+   */
+  public String support() {
+    support(this);
     return "";
   }
 }
