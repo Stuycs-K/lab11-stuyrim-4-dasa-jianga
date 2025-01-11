@@ -21,12 +21,12 @@ public class Game{
     }
     horizontal = Text.colorize(horizontal,Text.CYAN + Text.BACKGROUND);
     drawText(horizontal,0, 0);
-    drawText(horizontal,29,0);
     String space = Text.colorize(" ", Text.CYAN + Text.BACKGROUND);
     for (int i = 1; i <= 28; i++) {
       drawText(space, i, 0);
       drawText(space, i, 80);
     }
+    drawText(horizontal,29,0);
   }
 
   //Display a line of text starting at
