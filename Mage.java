@@ -18,7 +18,7 @@ public abstract class Mage extends Adventurer{
     return "Mana";
   }
   public int getSpecial(){
-    this.mana;
+    return this.mana;
   }
 
   public int getSpecialMax(){

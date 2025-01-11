@@ -1,19 +1,20 @@
 import java.util.*;
 public class Healer extends Adventurer{
-  int lifeforce, lifeforceMax;
+  private int lifeforce, lifeforceMax;
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
   public Healer(String name, int hp){
     super(name,hp);
-    lifeforce = 12;
+    lifeforce = 0;
+    lifeforceMax = 40;
   }
 
   public Healer(String name){
-    this(name,35);
+    super(name,35);
   }
 
   public Healer(){
-    this("Joe");
+    super("Joe");
   }
 
   /*The next 8 methods are all required because they are abstract:*/
