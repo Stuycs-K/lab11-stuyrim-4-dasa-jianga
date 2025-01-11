@@ -7,9 +7,13 @@ public class Game{
 
   public static void main(String[] args) {
     drawBackground();
-    TextBox(10, 10, 10, 5, "abc adbd xyz def");
     Text.go(30,80);
+    ArrayList<Adventurer> a = new ArrayList<Adventurer>();
+    a.add(new Healer("Heiter"));
+    a.add(new Mage("Frieren"));
+    drawParty(a, 2);
     //run();
+    
   }
 
   //Display the borders of your screen that will not change.
@@ -22,12 +26,12 @@ public class Game{
     }
     horizontal = Text.colorize(horizontal,BORDER_BACKGROUND, BORDER_COLOR);
     drawText(horizontal, 0, 0);
+    drawText(horizontal,HEIGHT-1,0);
     String space = Text.colorize("|", BORDER_BACKGROUND,BORDER_COLOR);
-    for (int i = 1; i <= HEIGHT-2; i++) {
+    for (int i = 1; i <= HEIGHT-1; i++) {
       drawText(space, i, 0);
       drawText(space, i, WIDTH);
     }
-    drawText(horizontal,HEIGHT-1,0);
     Text.go(30,80);
   }
 
@@ -103,7 +107,14 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-
+      TextBox(startRow, 2, 78, 4, ""); //resetting
+      int col = 2;
+      for (Adventurer a : party) {
+        drawText(a.getName(), startRow, col);
+        drawText("HP: " + a.getHP() + "/" + a.getmaxHP(), startRow+1,col);
+        drawText(a.getSpecialName() + ": " + a.getSpecial() + "/" + a.getSpecialMax(), startRow+2, col);
+        col += 20;
+      }
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
