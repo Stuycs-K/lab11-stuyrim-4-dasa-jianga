@@ -7,7 +7,8 @@ public class Game{
 
   public static void main(String[] args) {
     drawBackground();
-
+    TextBox(10, 10, 5, 5, "");
+    Text.go(30,80);
     //run();
   }
 
@@ -20,13 +21,14 @@ public class Game{
       horizontal += "-"; //30 spaces long
     }
     horizontal = Text.colorize(horizontal,BORDER_BACKGROUND, BORDER_COLOR);
-    drawText(horizontal,0, 0);
+    drawText(horizontal, 0, 0);
     String space = Text.colorize("|", BORDER_BACKGROUND,BORDER_COLOR);
     for (int i = 1; i <= HEIGHT-2; i++) {
       drawText(space, i, 0);
       drawText(space, i, WIDTH);
     }
     drawText(horizontal,HEIGHT-1,0);
+    Text.go(30,80);
   }
 
   //Display a line of text starting at
@@ -35,6 +37,7 @@ public class Game{
   public static void drawText(String s,int startRow, int startCol){
     Text.go(startRow, startCol);
     System.out.print(s);
+    Text.go(30,80);
   }
 
   /*Use this method to place text on the screen at a particular location.
