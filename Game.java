@@ -7,7 +7,7 @@ public class Game{
 
   public static void main(String[] args) {
     drawBackground();
-    TextBox(10, 10, 5, 5, "");
+    TextBox(10, 10, 10, 5, "abc adbd xyz def");
     Text.go(30,80);
     //run();
   }
@@ -60,9 +60,23 @@ public class Game{
       Text.go(row+i, col);
       System.out.print(blankLine);
     }
-    String[] words = text.split(" ");
-    for (int i = 0; i < words.length; i++) {
 
+    Text.go(row,col);    
+    String[] words = text.split(" ");
+    int currentLineLength = 0;
+    int curRow = row;
+    for (int i = 0; i < words.length; i++) {
+      if (currentLineLength + words[i].length() + 1 < width) {
+        System.out.print(words[i] + " ");
+        currentLineLength += words[i].length()+1;
+      }
+      else {
+        currentLineLength = 0;
+        curRow++;
+        Text.go(curRow,col);
+        System.out.print(words[i] + " ");
+        currentLineLength += words[i].length()+1;
+      }
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
