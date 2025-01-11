@@ -10,11 +10,11 @@ public class Healer extends Adventurer{
   }
 
   public Healer(String name){
-    super(name,35);
+    this(name,35);
   }
 
   public Healer(){
-    super("Joe");
+    this("Joe");
   }
 
   /*The next 8 methods are all required because they are abstract:*/
