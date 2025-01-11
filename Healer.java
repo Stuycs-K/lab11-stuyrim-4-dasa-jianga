@@ -46,8 +46,8 @@ public class Healer extends Adventurer{
   public String specialAttack(ArrayList<Adventurer> party, int i){
     if(getSpecial() >= 20){
       setSpecial(getSpecial()-20);
-      for (int i = 0; i < party.size(); i++) {
-        party.get(i).setHP(party.get(i).getHP()+ 12);
+      for (int k = 0; k < party.size(); k++) {
+        party.get(k).setHP(party.get(k).getHP()+ 12);
       }
       return "Healed whole team for 12 HP!";
     }else{

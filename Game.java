@@ -16,17 +16,17 @@ public class Game{
   public static void drawBackground(){
     Text.clear();
     String horizontal = "";
-    for (int i = 0; i < 80; i++) {
-      horizontal += " "; //30 spaces long
+    for (int i = 0; i < WIDTH; i++) {
+      horizontal += "-"; //30 spaces long
     }
-    horizontal = Text.colorize(horizontal,Text.CYAN + Text.BACKGROUND);
+    horizontal = Text.colorize(horizontal,BORDER_BACKGROUND, BORDER_COLOR);
     drawText(horizontal,0, 0);
-    String space = Text.colorize(" ", Text.CYAN + Text.BACKGROUND);
-    for (int i = 1; i <= 28; i++) {
+    String space = Text.colorize("|", BORDER_BACKGROUND,BORDER_COLOR);
+    for (int i = 1; i <= HEIGHT-2; i++) {
       drawText(space, i, 0);
-      drawText(space, i, 80);
+      drawText(space, i, WIDTH);
     }
-    drawText(horizontal,29,0);
+    drawText(horizontal,HEIGHT-1,0);
   }
 
   //Display a line of text starting at
@@ -48,6 +48,19 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
+    Text.go(row,col);
+    String blankLine = "";
+    for (int i = 0; i < width; i++) {
+      blankLine += " ";
+    }
+    for (int i = 0; i < height; i++) {
+      Text.go(row+i, col);
+      System.out.print(blankLine);
+    }
+    String[] words = text.split(" ");
+    for (int i = 0; i < words.length; i++) {
+
+    }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -137,6 +150,8 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
+    Adventurer Bob = new Healer("BOB");
+    enemies.add(Bob);
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -144,6 +159,8 @@ public class Game{
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
+    Adventurer Joe = new Healer("JOE");
+    party.add(Joe);
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
