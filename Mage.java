@@ -45,6 +45,9 @@ public class Mage extends Adventurer{
 
 /* Uses mana in order to attack AoE*/
   public String specialAttack(ArrayList<Adventurer> party, int a){
+    if(this.mana < 20){
+      return "Sorry, not enough mana. Current mana is: " + this.mana + ". Required mana is 20";
+    }
     this.mana -= 20;
     this.setHP(getHP() + 3);
     for(int x = 0; x < party.size(); x++){
@@ -54,10 +57,19 @@ public class Mage extends Adventurer{
   }
 
 /*User selects a character to give  double damage to on next attack. Costs 30 Mana and 3 HP*/
-  public String support(Adventurer other){
+  public String support(Adventurer other, ArrayList<Adventurer> opps){
+    if(this.mana < 30){
+      return "Sorry, not enough mana. Current mana is: " + this.mana + " .Required mana is 20";
+    }
+    if(this.getHP() <= 3){
+      return "Not enough health";
+    }
     this.mana -= 30;
-    this.setHP(getHP()-3);
-    return "";
+    this.setHP(this.getHP() -3);
+    int selector = (int)(Math.random()opps.length());
+    other.attack(opps.get(selector));
+    other.attack(opps.get(selector));
+    return other.getName() + "attacked " + opps.get(selector).getName() + " two times";
   }
   /*
    * IMPLEMENT THIS - THIS IS JUST A TEMPORARY COMPILE FIX;

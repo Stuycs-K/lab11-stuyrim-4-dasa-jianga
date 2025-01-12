@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 public abstract class Boss extends Adventurer{
-
-=======
+}
 public class CodeWarrior extends Adventurer{
   int caffeine, caffeineMax;
   String preferredLanguage;
@@ -81,5 +79,4 @@ public class CodeWarrior extends Adventurer{
     return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
     + getSpecialName()+ " and "+hp+" HP";
   }
->>>>>>> 0e12b6186bb655e79c1c6d80bb564d8eb3f741c5
 }
