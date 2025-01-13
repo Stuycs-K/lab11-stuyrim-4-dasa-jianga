@@ -9,9 +9,9 @@ public class Game{
     drawBackground();
     Text.go(30,80);
     ArrayList<Adventurer> a = new ArrayList<Adventurer>();
-    a.add(new Healer("Heiter"));
-    a.add(new Mage("Frieren"));
-    a.get(1).applyDamage();
+    a.add(createRandomAdventurer("Heiter"));
+    a.add(createRandomAdventurer("Frieren"));
+    //a.get(1).applyDamage(14); //testing color
     drawParty(a, 2);
     //run();
 
@@ -94,8 +94,17 @@ public class Game{
 
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
-    public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+    public static Adventurer createRandomAdventurer(String name){
+      int rand = (int)(Math.random() * 4);
+      if (rand == 1) {
+        return new Healer(name, (int)(Math.random()*11+30)); //30 to 40
+      }
+      else if (rand == 2) {
+        return new Mage(name, (int)(Math.random()*5 + 16)); //16 to 20
+      }
+      else {
+        return new CodeWarrior(name, (int)(Math.random()*9 + 26)); //26 to 34
+      }
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -114,7 +123,7 @@ public class Game{
         drawText(a.getName(), startRow, col);
         drawText(colorByPercent(a.getHP(), a.getmaxHP()), startRow+1,col);
         drawText(a.getSpecialName() + ": " + a.getSpecial() + "/" + a.getSpecialMax(), startRow+2, col);
-        col += 20;
+        col += 33;
       }
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
