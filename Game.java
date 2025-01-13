@@ -11,6 +11,7 @@ public class Game{
     ArrayList<Adventurer> a = new ArrayList<Adventurer>();
     a.add(new Healer("Heiter"));
     a.add(new Mage("Frieren"));
+    a.get(1).applyDamage();
     drawParty(a, 2);
     //run();
 
@@ -111,7 +112,7 @@ public class Game{
       int col = 2;
       for (Adventurer a : party) {
         drawText(a.getName(), startRow, col);
-        drawText("HP: " + a.getHP() + "/" + a.getmaxHP(), startRow+1,col);
+        drawText(colorByPercent(a.getHP(), a.getmaxHP()), startRow+1,col);
         drawText(a.getSpecialName() + ": " + a.getSpecial() + "/" + a.getSpecialMax(), startRow+2, col);
         col += 20;
       }
@@ -130,10 +131,10 @@ public class Game{
     // under 75% : yellow
     // otherwise : white
     if (hp * 4 < maxHP) {
-        return Text.colorize(output, Text.WHITE);
+        return Text.colorize(output, Text.RED);
     }
     else if (hp * 4 < maxHP * 3) {
-        return Text.colorize(output, Text.WHITE);
+        return Text.colorize(output, Text.YELLOW);
     }
     else {
         return Text.colorize(output, Text.WHITE);
