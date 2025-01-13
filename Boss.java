@@ -1,13 +1,13 @@
 public class Boss extends Adventurer{
-  int caffeine, caffeineMax;
+  int stacks, stacksMax;
   String preferredLanguage;
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
   public CodeWarrior(String name, int hp, String language){
     super(name,hp);
-    caffeineMax = 12;
-    caffeine = caffeineMax/2;
+    stacksMax = 70;
+    stacks = 35;
     preferredLanguage = language;
   }
 
@@ -25,19 +25,19 @@ public class Boss extends Adventurer{
 
   /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return "caffeine";
+    return "Stacks";
   }
 
   public int getSpecial(){
-    return caffeine;
+    return stacks;
   }
 
   public void setSpecial(int n){
-    caffeine = n;
+    stacks = n;
   }
 
   public int getSpecialMax(){
-    return caffeineMax;
+    return stacksMax;
   }
 
   /*Deal 2-7 damage to opponent, restores 2 caffeine*/

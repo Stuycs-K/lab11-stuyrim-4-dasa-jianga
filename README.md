@@ -46,12 +46,12 @@ Make a clear list of features that work/dont work
 ## Boss Class
 ### Stats
 - **HP**: 100
-- **Extremes** (Special resource) : 70 max
+- **Stacks** (Special resource) : 70 max
 ### Perk
-- **Blood-Thirsty**- If an attack by the boss reduces a character to under 25% health , Extremes set to max.
+- **Blood-Thirsty**- If an attack by the boss reduces a character to under 25% health , Stacks set to max.
 ### Attack
-- **Devastating Blow** (Normal Attack) - Deals 7 damage. Restores 10 Extremes.
+- **Devastating Blow** (Normal Attack) - Deals 7 damage. Restores 10 Stacks.
 ### Special
-- **Carnage**(Special Attack) - Deals 10 damage. If an enemy is defeated, reset all stats to max. Costs 35 Extremes.
+- **Carnage**(Special Attack) - Deals 10 damage. If an enemy is defeated, reset all stats to max. Costs 35 Stacks.
 ### Support
 - **Berserk** - For the next turn, it takes less 20% less damage from an opponent.
