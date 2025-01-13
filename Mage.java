@@ -10,9 +10,6 @@ public class Mage extends Adventurer{
     this.manaMax = 50;
   }
 
-  public String getName(){
-    return name;
-  }
   public String getSpecialName(){
     return "Mana";
   }
