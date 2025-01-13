@@ -1,6 +1,4 @@
-public abstract class Boss extends Adventurer{
-}
-public class CodeWarrior extends Adventurer{
+public class Boss extends Adventurer{
   int caffeine, caffeineMax;
   String preferredLanguage;
 
