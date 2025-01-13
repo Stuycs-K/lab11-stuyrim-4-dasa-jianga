@@ -36,7 +36,7 @@ public class Mage extends Adventurer{
     restoreSpecial(7);
     other.applyDamage(damage);
     if(other.getHP() <= 0){
-      restoreSpecial(this.manaMax);
+      this.setHP(this.getmaxHP());
     }
     return this.getName() + " attacked" + other + " and dealt" + damage + " points of damage";
   }
@@ -51,6 +51,9 @@ public class Mage extends Adventurer{
     this.setHP(getHP() + 3);
     for(int x = 0; x < party.size(); x++){
       party.get(x).setHP(party.get(x).getHP()-10);
+      if(party.get(x).getHP() <= 0){
+        this.setHP(this.getmaxHP());
+      }
     }
     return this.getName() + " attacked all opponents and dealt 10 points of damage to each while gaining 3HP. Mana is now: " + this.mana;
   }
