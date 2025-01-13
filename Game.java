@@ -13,7 +13,7 @@ public class Game{
     a.add(new Mage("Frieren"));
     drawParty(a, 2);
     //run();
-    
+
   }
 
   //Display the borders of your screen that will not change.
@@ -65,7 +65,7 @@ public class Game{
       System.out.print(blankLine);
     }
 
-    Text.go(row,col);    
+    Text.go(row,col);
     String[] words = text.split(" ");
     int currentLineLength = 0;
     int curRow = row;
@@ -129,7 +129,15 @@ public class Game{
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
-    return output;
+    if (hp * 4 < maxHP) {
+        return Text.colorize(output, Text.WHITE);
+    }
+    else if (hp * 4 < maxHP * 3) {
+        return Text.colorize(output, Text.WHITE);
+    }
+    else {
+        return Text.colorize(output, Text.WHITE);
+    }
   }
 
 

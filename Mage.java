@@ -11,7 +11,7 @@ public class Mage extends Adventurer{
   }
 
   public String getName(){
-    return "Donald";
+    return name;
   }
   public String getSpecialName(){
     return "Mana";
