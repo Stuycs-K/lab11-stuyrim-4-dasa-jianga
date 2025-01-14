@@ -12,15 +12,15 @@ public class Boss extends Adventurer{
   }
 
   public CodeWarrior(String name, int hp){
-    this(name,hp,"c++");
+    this(name,hp);
   }
 
   public CodeWarrior(String name){
-    this(name,24);
+    this(name);
   }
 
   public CodeWarrior(){
-    this("Carmack");
+    this("Boss");
   }
 
   /*The next 8 methods are all required because they are abstract:*/
@@ -40,30 +40,28 @@ public class Boss extends Adventurer{
     return stacksMax;
   }
 
-  /*Deal 2-7 damage to opponent, restores 2 caffeine*/
+  /*Deals 7 damage. Restores 10 Stacks.*/
   public String attack(Adventurer other){
-    int damage = (int)(Math.random()*6)+2;
-    other.applyDamage(damage);
-    restoreSpecial(2);
-    return this + " attacked "+ other + " and dealt "+ damage +
-    " points of damage. They then take a sip of their coffee.";
+    other.setHP(other.getHP() - 7);
+    this.setSpecial(this.getSpecial() + 10);
+    if((other.getHP() / other.getmaxHP()) < 0.25){
+      this.setSpecial(this.getSpecialMax());
+    }
+    return this.getName() + " attacked " + other.getName() + " and dealt 7 damage while gaining 10 HP."
   }
 
-  /*Deal 3-12 damage to opponent, only if caffeine is high enough.
-  *Reduces caffeine by 8.
-  */
+  /*Deals 10 damage. If an enemy is defeated, reset all stats to max. Costs 35 Stacks.*/
   public String specialAttack(Adventurer other){
-    if(getSpecial() >= 8){
-      setSpecial(getSpecial()-8);
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
-      other.applyDamage(damage);
-      return this + " used their "+preferredLanguage+
-      " skills to hack the matrix. "+
-      " This glitched out "+other+" dealing "+ damage +" points of damage.";
-    }else{
-      return "Not enough caffeine to use the ultimate code. Instead "+attack(other);
+    if(this.getSpecial() < 35){
+      return "Sorry, not enough stacks needed for this move. You needed 35 stacks. Current stacks: " + this.getSpecial();
     }
-
+    other.setHP(other.getHP() - 10);
+    this.setSpecial(this.getSpecial() - 35);
+    if(other.getHP() <= 0){
+      this.setHP(this.getmaxHP());
+      this.setSpecial(this.getSpecialMax());
+    }
+    return this.getName() + " used 35 stacks and dealt 10 damage to " + other.getName() + " . Current HP: " + this.getHP() + " Current Stacks:" + this.getSpecial();
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
