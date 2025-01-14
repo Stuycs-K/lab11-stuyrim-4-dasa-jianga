@@ -3,9 +3,10 @@ public class Game{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
-  private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
+  private static final int BACKGROUND_COLOR = Text.WHITE+Text.BACKGROUND;
 
   public static void main(String[] args) {
+    /* 
     drawBackground();
     Text.go(30,80);
     ArrayList<Adventurer> a = new ArrayList<Adventurer>();
@@ -13,7 +14,8 @@ public class Game{
     a.add(createRandomAdventurer("Frieren"));
     //a.get(1).applyDamage(14); //testing color
     drawParty(a, 2);
-    //run();
+    */
+    run();
 
   }
 
@@ -23,17 +25,20 @@ public class Game{
     Text.clear();
     String horizontal = "";
     for (int i = 0; i < WIDTH; i++) {
-      horizontal += "-"; //30 spaces long
+      horizontal += "─"; //30 spaces long
     }
-    horizontal = Text.colorize(horizontal,BORDER_BACKGROUND, BORDER_COLOR);
+    horizontal = Text.colorize(horizontal, BORDER_COLOR,BACKGROUND_COLOR);
     drawText(horizontal, 0, 0);
     drawText(horizontal,HEIGHT-1,0);
-    String space = Text.colorize("|", BORDER_BACKGROUND,BORDER_COLOR);
+    String space = Text.colorize("│", BORDER_COLOR,BACKGROUND_COLOR);
     for (int i = 1; i <= HEIGHT-1; i++) {
       drawText(space, i, 0);
       drawText(space, i, WIDTH);
     }
-    Text.go(30,80);
+    drawText(Text.colorize("┌", BORDER_COLOR,BACKGROUND_COLOR),0,0); //corners 
+    drawText(Text.colorize("┘", BORDER_COLOR,BACKGROUND_COLOR),29,80);
+    drawText(Text.colorize("┐", BORDER_COLOR,BACKGROUND_COLOR),0,80);
+    drawText(Text.colorize("└", BORDER_COLOR,BACKGROUND_COLOR),29,0);
   }
 
   //Display a line of text starting at
@@ -123,7 +128,7 @@ public class Game{
         drawText(a.getName(), startRow, col);
         drawText(colorByPercent(a.getHP(), a.getmaxHP()), startRow+1,col);
         drawText(a.getSpecialName() + ": " + a.getSpecial() + "/" + a.getSpecialMax(), startRow+2, col);
-        col += 33;
+        col += 30;
       }
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
@@ -161,9 +166,9 @@ public class Game{
 
     drawBackground();
 
-    drawParty(a, 2);
+    drawParty(p1, 3);
 
-    drawParty(a, 70);
+    drawParty(p2, 25);
 
   }
 
@@ -196,8 +201,12 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    Adventurer Bob = new Healer("BOB");
+    Adventurer Bob = createRandomAdventurer("BOB");
+    Adventurer Joe = createRandomAdventurer("JOE");
+    Adventurer Sam = createRandomAdventurer("SAM");
     enemies.add(Bob);
+    enemies.add(Joe);
+    enemies.add(Sam);
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -205,8 +214,12 @@ public class Game{
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    Adventurer Joe = new Healer("JOE");
-    party.add(Joe);
+    Adventurer a1 = new Healer("a1");
+    Adventurer a2 = new Healer("a2");    
+    Adventurer a3 = new Healer("a3");
+    party.add(a1);
+    party.add(a2);
+    party.add(a3);
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -306,7 +319,7 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-      drawScreen();
+      drawScreen(enemies, party);
 
 
     }//end of main game loop
