@@ -68,6 +68,7 @@ public class Boss extends Adventurer{
     return "This character doesn't support others.";
   }
   public String support(){
-    return "";
+    this.setHP(this.getHP() + this.getHP() * .2);
+    return "boosted by 20% health";
   }
 }
