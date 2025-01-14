@@ -4,22 +4,22 @@ public class Boss extends Adventurer{
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
-  public CodeWarrior(String name, int hp, String language){
+  public Boss(String name, int hp, String language){
     super(name,hp);
     stacksMax = 70;
     stacks = 35;
     preferredLanguage = language;
   }
 
-  public CodeWarrior(String name, int hp){
-    this(name,hp);
+  public Boss(String name, int hp){
+    super(name,hp);
   }
 
-  public CodeWarrior(String name){
-    this(name);
+  public Boss(String name){
+    super(name);
   }
 
-  public CodeWarrior(){
+  public Boss(){
     this("Boss");
   }
 
@@ -47,7 +47,11 @@ public class Boss extends Adventurer{
     if((other.getHP() / other.getmaxHP()) < 0.25){
       this.setSpecial(this.getSpecialMax());
     }
-    return this.getName() + " attacked " + other.getName() + " and dealt 7 damage while gaining 10 HP."
+    return this.getName() + " attacked " + other.getName() + " and dealt 7 damage while gaining 10 HP.";
+  }
+
+  public String specialAttack(ArrayList<Adventurer> others, int i){
+    return "not on a team";
   }
 
   /*Deals 10 damage. If an enemy is defeated, reset all stats to max. Costs 35 Stacks.*/
@@ -68,7 +72,6 @@ public class Boss extends Adventurer{
     return "This character doesn't support others.";
   }
   public String support(){
-    this.setHP(this.getHP() + this.getHP() * .2);
-    return "boosted by 20% health";
+    Minion nice = new Minion("Kevin", 3);
   }
 }

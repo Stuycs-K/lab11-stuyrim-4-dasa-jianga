@@ -54,4 +54,17 @@ Make a clear list of features that work/dont work
 ### Special
 - **Carnage**(Special Attack) - Deals 10 damage. If an enemy is defeated, reset all stats to max. Costs 35 Stacks.
 ### Support
-- **Berserk** - For the next turn, it takes less 20% less damage from an opponent.
+- **Minion**- Calls up a minion to aid in its damage.
+
+## Minion Subclass
+### Stats
+- **HP**:3
+- **Extra**(Special resource): 3 max
+### Perk
+- **No Perk**: The minion is only meant to be called up a few times by the Boss.
+### Attack
+- **Assault**(Normal Attack)- Deals 2 damage. Adds one Extra.
+### Special
+- **Mini-Devastation**(Special Attack): Attacks an opponent with as many Extra as the minion has. Minion dies afterwards.
+### Support
+- **Greater Cause**- Kills itself to give 3HP to the Boss and 5 Stacks.
