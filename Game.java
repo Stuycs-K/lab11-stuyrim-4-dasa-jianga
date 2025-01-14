@@ -6,7 +6,7 @@ public class Game{
   private static final int BACKGROUND_COLOR = Text.WHITE+Text.BACKGROUND;
 
   public static void main(String[] args) {
-    /* 
+    /*
     drawBackground();
     Text.go(30,80);
     ArrayList<Adventurer> a = new ArrayList<Adventurer>();
@@ -30,15 +30,25 @@ public class Game{
     horizontal = Text.colorize(horizontal, BORDER_COLOR,BACKGROUND_COLOR);
     drawText(horizontal, 0, 0);
     drawText(horizontal,HEIGHT-1,0);
+    drawText(horizontal,HEIGHT-7,0);
+    drawText(horizontal,HEIGHT-12,0);
+    drawText(horizontal, 6,0);
     String space = Text.colorize("│", BORDER_COLOR,BACKGROUND_COLOR);
     for (int i = 1; i <= HEIGHT-1; i++) {
       drawText(space, i, 0);
       drawText(space, i, WIDTH);
     }
-    drawText(Text.colorize("┌", BORDER_COLOR,BACKGROUND_COLOR),0,0); //corners 
+    drawText(Text.colorize("┌", BORDER_COLOR,BACKGROUND_COLOR),0,0); //corners
     drawText(Text.colorize("┘", BORDER_COLOR,BACKGROUND_COLOR),29,80);
     drawText(Text.colorize("┐", BORDER_COLOR,BACKGROUND_COLOR),0,80);
     drawText(Text.colorize("└", BORDER_COLOR,BACKGROUND_COLOR),29,0);
+
+    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),6,0);
+    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-7,0);
+    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,0);
+    drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),6,80);
+    drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-7,80);
+    drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,80);
   }
 
   //Display a line of text starting at
@@ -166,9 +176,9 @@ public class Game{
 
     drawBackground();
 
-    drawParty(p1, 3);
+    drawParty(p1, 2);
 
-    drawParty(p2, 25);
+    drawParty(p2, 19);
 
   }
 
@@ -215,7 +225,7 @@ public class Game{
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer a1 = new Healer("a1");
-    Adventurer a2 = new Healer("a2");    
+    Adventurer a2 = new Healer("a2");
     Adventurer a3 = new Healer("a3");
     party.add(a1);
     party.add(a2);
