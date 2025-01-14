@@ -1,3 +1,4 @@
+import java.util.*;
 public class Minion extends Adventurer{
   int extra, extramax;
   public Minion(String name, int hp){
@@ -8,36 +9,12 @@ public class Minion extends Adventurer{
   }
 
   //Get Methods
-  public String getName(){
-    return name;
-  }
-
-  public int getHP(){
-    return HP;
-  }
-
-  public int getmaxHP(){
-    return maxHP;
-  }
-  public void setmaxHP(int newMax){
-    this.maxHP = 3;
-  }
-  public void setHP(int health){
-    this.HP = health;
-  }
-  public void setName(String s){
-    this.name = s;
-  }
-
   public String getSpecialName(){
-    "Extra";
+    return "Extra";
   }
+
   public int getSpecial(){
     return extra;
-  }
-  public int getSpecialMax(){
-    this.extramax = 3;
-    return 3;
   }
   public void setSpecial(int n){
     if(this.getSpecial() + n < this.getSpecialMax()){
@@ -51,7 +28,7 @@ public class Minion extends Adventurer{
   public String attack(Adventurer other){
     other.setHP(other.getHP() - 2);
     this.setSpecial(this.getSpecial() + 1);
-    return "Minion attacked " + other.getName() + " and dealt 2 damage."
+    return "Minion attacked " + other.getName() + " and dealt 2 damage.";
   }
 
   public String specialAttack(ArrayList<Adventurer> others, int i){
@@ -62,7 +39,7 @@ public class Minion extends Adventurer{
   public String specialAttack(Adventurer other){
     other.setHP(other.getHP() - this.extra);
     this.setHP(0);
-    return "The minion dealt " + this.extra + " damage to " + other.getName() + " and died."
+    return "The minion dealt " + this.extra + " damage to " + other.getName() + " and died.";
   }
 
   /*Support: kills itself and gives 3HP to Boss and helps Boss gain 5 Extras*/
@@ -73,6 +50,6 @@ public class Minion extends Adventurer{
     return "Aided the greater cause.";
   }
   public String support(){
-    return "This character only believes in the greater cause, not itself."
+    return "This character only believes in the greater cause, not itself.";
   }
 }
