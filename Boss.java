@@ -63,16 +63,11 @@ public class Boss extends Adventurer{
     }
     return this.getName() + " used 35 stacks and dealt 10 damage to " + other.getName() + " . Current HP: " + this.getHP() + " Current Stacks:" + this.getSpecial();
   }
-  /*Restores 5 special to other*/
+  /*For the next turn, it takes less 20% less damage from an opponent.*/
   public String support(Adventurer other){
-    return "Gives a coffee to "+other+" and restores "
-    + other.restoreSpecial(5)+" "+other.getSpecialName();
+    return "This character doesn't support others.";
   }
-  /*Restores 6 special and 1 hp to self.*/
   public String support(){
-    int hp = 1;
-    setHP(getHP()+hp);
-    return this+" drinks a coffee to restores "+restoreSpecial(6)+" "
-    + getSpecialName()+ " and "+hp+" HP";
+    return "";
   }
 }
