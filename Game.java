@@ -223,8 +223,8 @@ public class Game{
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     Adventurer a1 = new Healer("a1");
-    Adventurer a2 = new Healer("a2");
-    Adventurer a3 = new Healer("a3");
+    Adventurer a2 = new Mage("a2");
+    Adventurer a3 = new CodeWarrior("a3");
     party.add(a1);
     party.add(a2);
     party.add(a3);
@@ -246,32 +246,33 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit:";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
-      Text.go(HEIGHT-6,2);
-      System.out.print(preprompt);
-      input = userInput(in);
 
       //example debug statment
       //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
       if(partyTurn){
-
+        Text.go(HEIGHT-6,2);
+        System.out.print(preprompt);
+        input = userInput(in);
+        Scanner scan = new Scanner(input);
+        String command = scan.next();
+        int target = scan.nextInt();
+//        System.out.println(command + " " + target);
         //Process user input for the last Adventurer:
-        if(input.startsWith("attack ") || input.startsWith("a ")){
+        if(command.equals("attack") || command.equals("a")){
+          System.out.println(party.get(whichPlayer).attack(enemies.get(target-1)));
+        }
+        else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.startsWith("special ") || input.startsWith("sp ")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
-        else if(input.startsWith("su ") || input.startsWith("support ")){
+        else if(input.equals("su") || input.equals("support")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -282,6 +283,7 @@ public class Game{
         //You should decide when you want to re-ask for user input
         //If no errors:
         whichPlayer++;
+        preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
 
 
         if(whichPlayer < party.size()){
@@ -329,7 +331,7 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-      drawScreen(enemies, party);
+    drawScreen(enemies, party);
 
 
     }//end of main game loop
