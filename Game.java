@@ -43,9 +43,9 @@ public class Game{
     drawText(Text.colorize("┐", BORDER_COLOR,BACKGROUND_COLOR),0,80);
     drawText(Text.colorize("└", BORDER_COLOR,BACKGROUND_COLOR),29,0);
 
-    drawText(Text.colorize("A", BORDER_COLOR,BACKGROUND_COLOR),6,0);
+    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),6,0);
     drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-7,0);
-    drawText(Text.colorize("B", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,0);
+    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,0);
     drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),6,80);
     drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-7,80);
     drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,80);
@@ -250,7 +250,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    
+
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
@@ -259,6 +259,7 @@ public class Game{
       //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
+      String msg = "";
       if(partyTurn && whichPlayer < enemies.size()){
         String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
         Text.go(HEIGHT-6,2);
@@ -270,8 +271,6 @@ public class Game{
         int target = scan.nextInt();
         scan.close();
 
-        String msg = "";
-
         if(command.equals("attack") || command.equals("a")){
           msg = party.get(whichPlayer).attack(enemies.get(target-1));
         }
@@ -281,11 +280,10 @@ public class Game{
         else if(input.equals("su") || input.equals("support")){
           msg = party.get(whichPlayer).support(party.get(target-1));
         }
-        drawMsg(msg);
 
 
         whichPlayer++;
-    
+
 
 
         if(whichPlayer < party.size()){
@@ -293,12 +291,10 @@ public class Game{
           //Decide where to draw the following prompt:
           String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
-
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
-
           partyTurn = false;
           whichOpponent = 0;
         }
@@ -334,6 +330,7 @@ public class Game{
 
       //display the updated screen after input has been processed.
     drawScreen(enemies, party);
+    drawMsg(msg);
 
 
     }//end of main game loop
