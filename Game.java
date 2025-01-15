@@ -110,11 +110,11 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(String name){
-      int rand = (int)(Math.random() * 4);
-      if (rand == 1) {
+      int rand = (int)(Math.random() * 3); //0 to 2
+      if (rand == 0) {
         return new Healer(name, (int)(Math.random()*11+30)); //30 to 40
       }
-      else if (rand == 2) {
+      else if (rand == 1) {
         return new Mage(name, (int)(Math.random()*5 + 16)); //16 to 20
       }
       else {
@@ -280,7 +280,7 @@ public class Game{
           msg = party.get(whichPlayer).specialAttack(enemies,target-1);
         }
         else if(input.equals("su") || input.equals("support")){
-          msg = party.get(whichPlayer).support(party.get(target-1));
+          msg = party.get(whichPlayer).support(party, party.get(target-1));
         }
 
         whichPlayer++;
@@ -292,11 +292,17 @@ public class Game{
         //not the party turn!
 
 
-        //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices go here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        int rand = (int)(Math.random() * 10); // 0 to 9
+        int target = (int)(Math.random() * 3); //0 to 2
+        if (rand <= 6) { // 6/10 chance of attack random
+
+        }
+        else if (rand == 1) { // 2/10 chance of support random
+
+        }
+        else { //
+
+        }
 
 
         //Decide where to draw the following prompt:
@@ -316,12 +322,10 @@ public class Game{
         //THIS BLOCK IS TO END THE ENEMY TURN
         //It only triggers after the last enemy goes.
         //Text.go(13,2);
-        //System.out.print("CODE REACHEd");
+        //System.out.print("CODE REACHED");
         whichPlayer = 0;
         turn++;
         partyTurn=true;
-        //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
       }
 
       //display the updated screen after input has been processed.

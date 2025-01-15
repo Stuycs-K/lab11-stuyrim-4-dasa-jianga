@@ -57,7 +57,7 @@ public class Healer extends Adventurer{
 
   }
   /*Restores 5 special to other*/
-  public String support(Adventurer other){
+  public String support(ArrayList<Adventurer> party, Adventurer other){
     if (other.getHP() + 4 > other.getmaxHP()) {
       int heal = other.getmaxHP() - other.getHP();
       other.setHP(other.getmaxHP());

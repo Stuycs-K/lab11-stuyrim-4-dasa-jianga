@@ -60,7 +60,7 @@ public class Mage extends Adventurer{
 
 /*User selects a character to give  double damage to on next attack. Costs 30 Mana and 3 HP*/
 @Override
-  public String support(Adventurer other){
+  public String support(ArrayList<Adventurer> party, Adventurer other){
     if(this.mana < 30){
       return "Sorry, not enough mana. Current mana is: " + this.mana + " .Required mana is 20";
     }
@@ -76,7 +76,6 @@ public class Mage extends Adventurer{
    * IMPLEMENT THIS - THIS IS JUST A TEMPORARY COMPILE FIX;
    */
   public String support() {
-    support(this);
     return "";
   }
 }
