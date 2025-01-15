@@ -41,13 +41,13 @@ public abstract class Adventurer{
   //public abstract String support(ArrayList<Adventurer> others);
 
   //heal or buff the target adventurer
-  public abstract String support(Adventurer other);
+  public abstract String support(ArrayList<Adventurer> party, Adventurer other);
 
   //heal or buff self
   public abstract String support();
 
   //hurt or hinder the target adventurer, consume some special resource
-  public abstract String specialAttack(ArrayList<Adventurer> others, int i);
+  public abstract String specialAttack(ArrayList<Adventurer> party, int i);
 
   /*
   standard methods
