@@ -1,3 +1,4 @@
+import java.util.*;
 public class Boss extends Adventurer{
   int stacks, stacksMax;
   String preferredLanguage;
@@ -73,5 +74,6 @@ public class Boss extends Adventurer{
   }
   public String support(){
     Minion nice = new Minion("Kevin", 3);
+    return "Minion spawned.";
   }
 }

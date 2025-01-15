@@ -24,6 +24,9 @@ public class Minion extends Adventurer{
       this.extra = this.extramax;
     }
   }
+  public int getSpecialMax(){
+    return this.extramax;
+  }
   /*Deals 2 damage*/
   public String attack(Adventurer other){
     other.setHP(other.getHP() - 2);
@@ -43,7 +46,7 @@ public class Minion extends Adventurer{
   }
 
   /*Support: kills itself and gives 3HP to Boss and helps Boss gain 5 Extras*/
-  public String support(Boss other){
+  public String support(Adventurer other){
     other.setHP(other.getHP() + 3);
     other.setSpecial(other.getSpecial() + 5);
     this.setHP(0);
