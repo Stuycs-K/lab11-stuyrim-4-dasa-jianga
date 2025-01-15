@@ -260,17 +260,19 @@ public class Game{
 
       //display event based on last turn's input
       String msg = "";
-      if(partyTurn && whichPlayer < enemies.size()){
+
+      if(partyTurn && whichPlayer < party.size()){
+        //print preprompt
         String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
         Text.go(HEIGHT-6,2);
         System.out.print(preprompt);
-
+        //initializing variables and breaking input
         input = userInput(in);
         Scanner scan = new Scanner(input);
         String command = scan.next();
         int target = scan.nextInt();
         scan.close();
-
+        //taking commands
         if(command.equals("attack") || command.equals("a")){
           msg = party.get(whichPlayer).attack(enemies.get(target-1));
         }
@@ -281,25 +283,11 @@ public class Game{
           msg = party.get(whichPlayer).support(party.get(target-1));
         }
 
-
         whichPlayer++;
 
+      }
 
-
-        if(whichPlayer < party.size()){
-          //This is a player turn.
-          //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
-        }else{
-          //This is after the player's turn, and allows the user to see the enemy turn
-          //Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
-          partyTurn = false;
-          whichOpponent = 0;
-        }
-        //done with one party member
-      }else{
+      else {
         //not the party turn!
 
 
@@ -312,7 +300,12 @@ public class Game{
 
         //Decide where to draw the following prompt:
         String prompt = "press enter to see next turn";
-
+        Text.go(HEIGHT-6,2);
+        System.out.print(prompt);
+        Text.go(HEIGHT-4,2);
+        System.out.print(partyTurn + " " + whichOpponent);
+        input = userInput(in);
+        Scanner scan = new Scanner(input);
         whichOpponent++;
 
       }//end of one enemy.
