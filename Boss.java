@@ -70,7 +70,7 @@ public class Boss extends Adventurer{
   }
   /*For the next turn, it takes less 20% less damage from an opponent.*/
   public String support(Adventurer other){
-    return "This character doesn't support others.";
+    return support();
   }
   public String support(){
     Minion nice = new Minion("Kevin", 3);
