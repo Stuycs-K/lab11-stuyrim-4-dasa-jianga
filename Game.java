@@ -324,6 +324,7 @@ public class Game{
         //Text.go(13,2);
         //System.out.print("CODE REACHED");
         whichPlayer = 0;
+        whichOpponent = 0;
         turn++;
         partyTurn=true;
       }
