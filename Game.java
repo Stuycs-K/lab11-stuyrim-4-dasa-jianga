@@ -291,17 +291,16 @@ public class Game{
         partyTurn = false;
         //not the party turn!
 
-
         int rand = (int)(Math.random() * 10); // 0 to 9
         int target = (int)(Math.random() * 3); //0 to 2
-        if (rand <= 6) { // 6/10 chance of attack random
-
+        if (rand <= 5) { // 6/10 chance of attack random
+          msg = enemies.get(whichOpponent).attack(party.get(target));
         }
-        else if (rand == 1) { // 2/10 chance of support random
-
+        else if (rand == 6 || rand == 7) { // 2/10 chance of support random
+          msg = enemies.get(whichOpponent).support(enemies,party.get(target));
         }
-        else { //
-
+        else { // 2/10 chance special
+          msg = enemies.get(whichOpponent).specialAttack(party, target);
         }
 
 
