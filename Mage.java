@@ -44,10 +44,10 @@ public class Mage extends Adventurer{
 /* Uses mana in order to attack AoE*/
 @Override
   public String specialAttack(ArrayList<Adventurer> party, int a){
-    if(this.mana < 20){
+    if(this.getSpecial() < 20){
       return "Sorry, not enough mana. Current mana is: " + this.mana + ". Required mana is 20";
     }
-    this.mana -= 20;
+    this.setSpecial(this.getSpecial() - 20);
     this.setHP(getHP() + 3);
     for(int x = 0; x < party.size(); x++){
       party.get(x).setHP(party.get(x).getHP()-10);
