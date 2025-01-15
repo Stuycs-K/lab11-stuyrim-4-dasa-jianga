@@ -43,9 +43,9 @@ public class Game{
     drawText(Text.colorize("┐", BORDER_COLOR,BACKGROUND_COLOR),0,80);
     drawText(Text.colorize("└", BORDER_COLOR,BACKGROUND_COLOR),29,0);
 
-    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),6,0);
+    drawText(Text.colorize("A", BORDER_COLOR,BACKGROUND_COLOR),6,0);
     drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-7,0);
-    drawText(Text.colorize("├", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,0);
+    drawText(Text.colorize("B", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,0);
     drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),6,80);
     drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-7,80);
     drawText(Text.colorize("┤", BORDER_COLOR,BACKGROUND_COLOR),HEIGHT-12,80);
@@ -198,6 +198,10 @@ public class Game{
     Text.go(32,1);
   }
 
+  public static void drawMsg(String msg) {
+    TextBox(7,2,78,11,msg);
+  }
+
   public static void run(){
     //Clear and initialize
     Text.hideCursor();
@@ -277,8 +281,8 @@ public class Game{
         else if(input.equals("su") || input.equals("support")){
           msg = party.get(whichPlayer).support(party.get(target-1));
         }
+        drawMsg(msg);
 
-        
 
         whichPlayer++;
     
