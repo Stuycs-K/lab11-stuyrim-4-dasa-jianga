@@ -69,11 +69,12 @@ public class Boss extends Adventurer{
     return this.getName() + " used 35 stacks and dealt 10 damage to " + other.getName() + " . Current HP: " + this.getHP() + " Current Stacks:" + this.getSpecial();
   }
   /*For the next turn, it takes less 20% less damage from an opponent.*/
-  public String support(Adventurer other){
-    return support();
+  public String support(ArrayList<Adventurer> team, Adventurer other){
+    Minion nice = new Minion("Kevin", 3);
+    team.add(nice);
+    return "Minion spawned.";
   }
   public String support(){
-    Minion nice = new Minion("Kevin", 3);
-    return "Minion spawned.";
+    return "";
   }
 }

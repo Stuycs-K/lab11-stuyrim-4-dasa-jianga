@@ -46,13 +46,14 @@ public class Minion extends Adventurer{
   }
 
   /*Support: kills itself and gives 3HP to Boss and helps Boss gain 5 Extras*/
-  public String support(Adventurer other){
-    return support(other);
+  public String support(ArrayList<Adventurer> team, Adventurer other){
+    return support(team, other);
   }
-  public String support(Boss other){
+  public String support(ArrayList<Adventurer> team, Boss other){
     other.setHP(other.getHP() + 3);
     other.setSpecial(other.getSpecial() + 5);
     this.setHP(0);
+    team.remove(team.size() - 1 );
     return "Aided the greater cause.";
   }
   public String support(){
