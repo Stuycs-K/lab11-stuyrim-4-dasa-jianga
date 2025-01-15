@@ -288,6 +288,7 @@ public class Game{
       }
 
       else {
+        partyTurn = false;
         //not the party turn!
 
 
@@ -302,8 +303,8 @@ public class Game{
         String prompt = "press enter to see next turn";
         Text.go(HEIGHT-6,2);
         System.out.print(prompt);
-        Text.go(HEIGHT-4,2);
-        System.out.print(partyTurn + " " + whichOpponent);
+        //Text.go(11,2);
+        //System.out.print(partyTurn + " " + whichOpponent);
         input = userInput(in);
         Scanner scan = new Scanner(input);
         whichOpponent++;
@@ -314,6 +315,8 @@ public class Game{
       if(!partyTurn && whichOpponent >= enemies.size()){
         //THIS BLOCK IS TO END THE ENEMY TURN
         //It only triggers after the last enemy goes.
+        //Text.go(13,2);
+        //System.out.print("CODE REACHEd");
         whichPlayer = 0;
         turn++;
         partyTurn=true;
