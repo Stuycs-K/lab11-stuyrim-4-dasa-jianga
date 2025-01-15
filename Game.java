@@ -202,6 +202,7 @@ public class Game{
     //Clear and initialize
     Text.hideCursor();
     Text.clear();
+    int turn = 0;
 
 
     //Things to attack:
@@ -235,7 +236,6 @@ public class Game{
     boolean partyTurn = true;
     int whichPlayer = 0;
     int whichOpponent = 0;
-    int turn = 0;
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -246,7 +246,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
+    
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
@@ -255,35 +255,33 @@ public class Game{
       //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
-      if(partyTurn){
+      if(partyTurn && whichPlayer < enemies.size()){
+        String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
         Text.go(HEIGHT-6,2);
         System.out.print(preprompt);
+
         input = userInput(in);
         Scanner scan = new Scanner(input);
         String command = scan.next();
         int target = scan.nextInt();
-//        System.out.println(command + " " + target);
-        //Process user input for the last Adventurer:
+        scan.close();
+
+        String msg = "";
+
         if(command.equals("attack") || command.equals("a")){
-          System.out.println(party.get(whichPlayer).attack(enemies.get(target-1)));
+          msg = party.get(whichPlayer).attack(enemies.get(target-1));
         }
         else if(input.equals("special") || input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          msg = party.get(whichPlayer).specialAttack(enemies,target-1);
         }
         else if(input.equals("su") || input.equals("support")){
-          //"support 0" or "su 0" or "su 2" etc.
-          //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          msg = party.get(whichPlayer).support(party.get(target-1));
         }
 
-        //You should decide when you want to re-ask for user input
-        //If no errors:
+        
+
         whichPlayer++;
-        preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
+    
 
 
         if(whichPlayer < party.size()){
