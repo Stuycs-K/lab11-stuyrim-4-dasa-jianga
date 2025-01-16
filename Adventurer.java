@@ -27,6 +27,14 @@ public abstract class Adventurer{
     return n;
   }
 
+  public int restoreHP(int n){
+    if( n > getmaxHP() - getHP()){
+      n = getmaxHP() - getHP();
+    }
+    setHP(getSpecial()+n);
+    return n;
+  }
+
   /*
   all adventurers must have a way to attack enemies and
   support their allys

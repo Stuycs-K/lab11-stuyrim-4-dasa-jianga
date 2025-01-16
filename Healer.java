@@ -59,9 +59,9 @@ public class Healer extends Adventurer{
       for (int k = 0; k < party.size(); k++) {
         party.get(k).setHP(party.get(k).getHP()+ 12);
       }
-      return "Healed whole team for 12 HP!" + passivePerk();
+      return this + " healed whole team for 12 HP!" + passivePerk();
     }else{
-      return "Not enough life force. Turn ended." + passivePerk();
+      return this + " does not have enough life force." + passivePerk();
     }
 
   }
@@ -70,12 +70,12 @@ public class Healer extends Adventurer{
     if (other.getHP() + 4 > other.getmaxHP()) {
       int heal = other.getmaxHP() - other.getHP();
       other.setHP(other.getmaxHP());
-      return "Heals " + other + " and restores " + heal + " HP" + passivePerk();
+      return this + " heals " + other + " and restores " + heal + " HP" + passivePerk();
     }
     else {
       int heal = 4;
       other.setHP(other.getHP()+4);
-      return "Heals " + other + " and restores " + heal + " HP" + passivePerk();
+      return this + " heals " + other + " and restores " + heal + " HP" + passivePerk();
     }
   }
   /*Restores 6 special and 1 hp to self.*/

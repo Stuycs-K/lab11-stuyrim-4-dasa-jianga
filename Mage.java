@@ -38,7 +38,7 @@ public class Mage extends Adventurer{
     if(other.getHP() <= 0){
       this.setHP(this.getmaxHP());
     }
-    return this.getName() + " attacked " + other.getName() + " and dealt " + damage + " points of damage.";
+    return this.getName() + " attacked " + other.getName() + " and dealt " + damage + " damage.";
   }
 
 /* Uses mana in order to attack AoE*/
@@ -55,7 +55,7 @@ public class Mage extends Adventurer{
         this.setHP(this.getmaxHP());
       }
     }
-    return this.getName() + " attacked all opponents and dealt 10 points of damage to each while gaining 3HP. Mana is now: " + this.mana;
+    return this.getName() + " cast Earthquake, dealing 10 damage to all enemies. ";
   }
 
 /*User selects a character to give  double damage to on next attack. Costs 30 Mana and 3 HP*/
