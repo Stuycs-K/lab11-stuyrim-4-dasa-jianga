@@ -38,9 +38,9 @@ public class Healer extends Adventurer{
     restoreSpecial(2);
     if (this.getHP() + 1 <= this.getmaxHP()) {
       this.setHP(this.getHP()+1);
-      return " " + this + " also passively healed 1 and restored 1 Life Force";
-    } 
-    return " " + this + " also restored 2 Life Force";
+      return " " + this + " also passively healed 1.";
+    }
+    return "";
   }
 
   /*Smack - Deals 2 damage and restores 5 Life Force.*/

@@ -45,7 +45,7 @@ public class Mage extends Adventurer{
 @Override
   public String specialAttack(ArrayList<Adventurer> party, int a){
     if(this.getSpecial() < 20){
-      return "Sorry, not enough mana. Current mana is: " + this.mana + ". Required mana is 20";
+      return this + " does not have enough mana. Current mana is " + this.mana + ". Required mana is 20";
     }
     this.setSpecial(this.getSpecial() - 20);
     this.setHP(getHP() + 3);
