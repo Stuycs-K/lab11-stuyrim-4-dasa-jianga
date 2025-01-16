@@ -34,12 +34,21 @@ public class Healer extends Adventurer{
     return lifeforceMax;
   }
 
+  public String passivePerk(){
+    restoreSpecial(2);
+    if (this.getHP() + 1 <= this.getmaxHP()) {
+      this.setHP(this.getHP()+1);
+      return "\n" + this + " also passively healed 1 and restored 1 Life Force";
+    } 
+    return "\n" + this + " and restored 2 Life Force";
+  }
+
   /*Smack - Deals 2 damage and restores 5 Life Force.*/
   public String attack(Adventurer other){
     int damage = 2;
     other.applyDamage(damage);
-    restoreSpecial(2);
-    return this + " smacked "+ other + " and dealt "+ damage;
+    restoreSpecial(5);
+    return this + " smacked "+ other + " and dealt "+ damage + passivePerk();
   }
 
   /*Group Healing - Heals all alive allies for 12 HP.
@@ -50,9 +59,9 @@ public class Healer extends Adventurer{
       for (int k = 0; k < party.size(); k++) {
         party.get(k).setHP(party.get(k).getHP()+ 12);
       }
-      return "Healed whole team for 12 HP!";
+      return "Healed whole team for 12 HP!" + passivePerk();
     }else{
-      return "Not enough life force. Turn ended.";
+      return "Not enough life force. Turn ended." + passivePerk();
     }
 
   }
@@ -61,12 +70,12 @@ public class Healer extends Adventurer{
     if (other.getHP() + 4 > other.getmaxHP()) {
       int heal = other.getmaxHP() - other.getHP();
       other.setHP(other.getmaxHP());
-      return "Heals " + other + " and restores " + heal + " HP";
+      return "Heals " + other + " and restores " + heal + " HP" + passivePerk();
     }
     else {
       int heal = 4;
       other.setHP(other.getHP()+4);
-      return "Heals " + other + " and restores " + heal + " HP";
+      return "Heals " + other + " and restores " + heal + " HP" + passivePerk();
     }
   }
   /*Restores 6 special and 1 hp to self.*/
@@ -74,12 +83,12 @@ public class Healer extends Adventurer{
     if (this.getHP() + 4 > this.getmaxHP()) {
       int heal = this.getmaxHP() - this.getHP();
       this.setHP(this.getmaxHP());
-      return "Restores " + heal + " HP";
+      return "Restores " + heal + " HP" + passivePerk();
     }
     else {
       int heal = 4;
       this.setHP(this.getHP()+4);
-      return "Heals " + this + " and restores " + heal + " HP";
+      return "Heals " + this + " and restores " + heal + " HP" + passivePerk();
     }
   }
 }
