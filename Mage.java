@@ -58,7 +58,7 @@ public class Mage extends Adventurer{
     return this.getName() + " cast Earthquake, dealing 10 damage to all enemies, and restores HP.";
   }
 
-/*User selects a character to give  double damage to on next attack. Costs 30 Mana and 3 HP*/
+/*User selects a character to give double damage to a randomly selected opponent. Costs 30 Mana and 3 HP*/
 @Override
   public String support(ArrayList<Adventurer> party, Adventurer other){
     if(this.mana < 30){
@@ -69,8 +69,10 @@ public class Mage extends Adventurer{
     }
     this.mana -= 30;
     this.setHP(this.getHP() - 3);
-    int selector = (int)(Math.random()*4);
-    return "";
+    int rand = (int)(Math.random() * party.size());
+    other.attack(party.get(rand));
+    other.attack(party.get(rand));
+    return other.getName() + " attacked " + party.get(rand).getName() + " two times, thanks to a support by the mage.";
   }
   /*
    * IMPLEMENT THIS - THIS IS JUST A TEMPORARY COMPILE FIX;

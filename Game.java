@@ -116,8 +116,7 @@ public class Game{
       }
       else if (rand == 1) {
         return new Mage(name, (int)(Math.random()*5 + 16)); //16 to 20
-      }
-      else {
+      } else{
         return new CodeWarrior(name, (int)(Math.random()*9 + 26)); //26 to 34
       }
     }
@@ -279,7 +278,12 @@ public class Game{
           msg = party.get(whichPlayer).specialAttack(enemies,target-1);
         }
         else if(command.equals("su") || command.equals("support")){
-          msg = party.get(whichPlayer).support(party, party.get(target-1));
+          if(!(party.get(whichPlayer).getSpecialName().equals("Mana"))){
+            msg = party.get(whichPlayer).support(party, party.get(target-1));
+          }
+          else{
+            msg = party.get(whichPlayer).support(enemies, party.get(target - 1));
+          }
         }
         //System.out.println(msg);
         //return;

@@ -41,7 +41,7 @@ Make a clear list of features that work/dont work
 ### Special
 - **Earthquake** (Special Attack) - Deals 10 damage to all enemies. Costs 20 Mana and restores 3 HP.
 ### Support
-- **Double Damage** - User selects a specific character to give double damage on the next attack. The Mage can be chosen to support itself. Costs 30 Mana and 3 HP.
+- **Double Damage** - User selects a character to give double damage to a randomly selected opponent. Costs 30 Mana and 3 HP
 
 ## Boss Class
 ### Stats
