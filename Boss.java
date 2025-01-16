@@ -1,20 +1,13 @@
 import java.util.*;
 public class Boss extends Adventurer{
-  int stacks, stacksMax;
-  String preferredLanguage;
-
-  /*the other constructors ultimately call the constructor
-  *with all parameters.*/
-  public Boss(String name, int hp, String language){
-    super(name,hp);
-    stacksMax = 70;
-    stacks = 35;
-    preferredLanguage = language;
-  }
+  private int stacks, stacksMax;
 
   public Boss(String name, int hp){
     super(name,hp);
+    this.stacksMax = 70;
+    this.stacks = 35;
   }
+
 
   public Boss(String name){
     super(name);
@@ -30,11 +23,11 @@ public class Boss extends Adventurer{
   }
 
   public int getSpecial(){
-    return stacks;
+    return this.stacks;
   }
 
   public void setSpecial(int n){
-    stacks = n;
+    this.stacks = n;
   }
 
   public int getSpecialMax(){
@@ -77,4 +70,5 @@ public class Boss extends Adventurer{
   public String support(){
     return "";
   }
+
 }
