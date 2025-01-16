@@ -61,7 +61,7 @@ public class Healer extends Adventurer{
       }
       return this + " healed whole team for 12 HP!" + passivePerk();
     }else{
-      return this + " does not have enough life force." + passivePerk();
+      return this + " tried to heal the whole team, but does not have enough life force." + passivePerk();
     }
 
   }
