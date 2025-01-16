@@ -38,9 +38,9 @@ public class Healer extends Adventurer{
     restoreSpecial(2);
     if (this.getHP() + 1 <= this.getmaxHP()) {
       this.setHP(this.getHP()+1);
-      return "\n" + this + " also passively healed 1 and restored 1 Life Force";
+      return " " + this + " also passively healed 1 and restored 1 Life Force";
     } 
-    return "\n" + this + " and restored 2 Life Force";
+    return " " + this + " also restored 2 Life Force";
   }
 
   /*Smack - Deals 2 damage and restores 5 Life Force.*/
@@ -48,7 +48,7 @@ public class Healer extends Adventurer{
     int damage = 2;
     other.applyDamage(damage);
     restoreSpecial(5);
-    return this + " smacked "+ other + " and dealt "+ damage + passivePerk();
+    return this + " smacked "+ other + " and dealt "+ damage + "." + passivePerk();
   }
 
   /*Group Healing - Heals all alive allies for 12 HP.

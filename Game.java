@@ -259,11 +259,11 @@ public class Game{
       //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
-      String msg = "";
+      String msg = "Bad input!";
 
       if(partyTurn && whichPlayer < party.size()){
         //print preprompt
-        String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit + enemy number:";
+        String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit + enemy number:";
         Text.go(HEIGHT-6,2);
         System.out.print(preprompt);
         //initializing variables and breaking input
@@ -271,18 +271,18 @@ public class Game{
         Scanner scan = new Scanner(input);
         String command = scan.next();
         int target = scan.nextInt();
-        scan.close();
         //taking commands
         if(command.equals("attack") || command.equals("a")){
           msg = party.get(whichPlayer).attack(enemies.get(target-1));
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if(command.equals("special") || command.equals("sp")){
           msg = party.get(whichPlayer).specialAttack(enemies,target-1);
         }
-        else if(input.equals("su") || input.equals("support")){
+        else if(command.equals("su") || command.equals("support")){
           msg = party.get(whichPlayer).support(party, party.get(target-1));
         }
-
+        //System.out.println(msg);
+        //return;
         whichPlayer++;
 
       }
@@ -297,7 +297,7 @@ public class Game{
           msg = enemies.get(whichOpponent).attack(party.get(target));
         }
         else if (rand == 6 || rand == 7) { // 2/10 chance of support random
-          msg = enemies.get(whichOpponent).support(enemies,party.get(target));
+          msg = enemies.get(whichOpponent).support(enemies,enemies.get(target));
         }
         else { // 2/10 chance special
           msg = enemies.get(whichOpponent).specialAttack(party, target);
