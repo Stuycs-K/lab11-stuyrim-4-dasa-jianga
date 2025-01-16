@@ -31,7 +31,7 @@ public abstract class Adventurer{
     if( n > getmaxHP() - getHP()){
       n = getmaxHP() - getHP();
     }
-    setHP(getSpecial()+n);
+    setHP(getHP()+n);
     return n;
   }
 

@@ -45,30 +45,30 @@ public class Mage extends Adventurer{
 @Override
   public String specialAttack(ArrayList<Adventurer> party, int a){
     if(this.getSpecial() < 20){
-      return this + " does not have enough mana. Current mana is " + this.mana + ". Required mana is 20";
+      return this + " does not have enough mana.";
     }
     this.setSpecial(this.getSpecial() - 20);
-    this.setHP(getHP() + 3);
+    this.restoreHP(3);
     for(int x = 0; x < party.size(); x++){
       party.get(x).setHP(party.get(x).getHP()-10);
       if(party.get(x).getHP() <= 0){
         this.setHP(this.getmaxHP());
       }
     }
-    return this.getName() + " cast Earthquake, dealing 10 damage to all enemies. ";
+    return this.getName() + " cast Earthquake, dealing 10 damage to all enemies, and restores HP.";
   }
 
 /*User selects a character to give  double damage to on next attack. Costs 30 Mana and 3 HP*/
 @Override
   public String support(ArrayList<Adventurer> party, Adventurer other){
     if(this.mana < 30){
-      return "Sorry, not enough mana. Current mana is: " + this.mana + " .Required mana is 20";
+      return this + " does not have enough mana.";
     }
     if(this.getHP() <= 3){
       return "Not enough health";
     }
     this.mana -= 30;
-    this.setHP(this.getHP() -3);
+    this.setHP(this.getHP() - 3);
     int selector = (int)(Math.random()*4);
     return "";
   }
