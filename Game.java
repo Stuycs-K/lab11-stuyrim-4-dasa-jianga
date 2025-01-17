@@ -341,6 +341,24 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
+
+    //check for dead enemies
+    for (int i = 0; i < party.size(); i++) {
+        if (party.get(i).getHP() <= 0) {
+            msg += " " + party.get(i) + " has died!";
+            party.remove(i);
+            i--;
+
+      }
+    }
+    for (int i = 0; i < enemies.size(); i++) {
+        if (enemies.get(i).getHP()<=0) {
+          msg += " " + enemies.get(i) + " has died!";
+          enemies.remove(i);
+          i--;
+        }
+    }
+
     drawScreen(enemies, party);
     drawMsg(msg);
 
