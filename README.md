@@ -37,7 +37,7 @@ Make a clear list of features that work/dont work
 ### Perk
 - **Vampire** - Defeating an enemy restores HP to max.
 ### Attack
-- **Wand of Fire** (Normal Attack) - Deals 4 damage. Restores 7 mana.
+- **Fireball** (Normal Attack) - Deals 4 damage. Restores 7 mana.
 ### Special
 - **Earthquake** (Special Attack) - Deals 10 damage to all enemies. Costs 20 Mana and restores 3 HP.
 ### Support

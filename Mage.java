@@ -38,7 +38,7 @@ public class Mage extends Adventurer{
     if(other.getHP() <= 0){
       this.setHP(this.getmaxHP());
     }
-    return this.getName() + " attacked " + other.getName() + " and dealt " + damage + " damage.";
+    return this.getName() + " used Fireball on " + other.getName() + " and dealt " + damage + " damage. Also restored 7 mana.";
   }
 
 /* Uses mana in order to attack AoE*/
