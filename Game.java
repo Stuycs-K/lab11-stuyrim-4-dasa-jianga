@@ -153,6 +153,9 @@ public class Game{
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
+    if (hp <= 0) {
+      return Text.colorize("DEAD", Text.RED);
+    }
     if (hp * 4 < maxHP) {
         return Text.colorize(output, Text.RED);
     }

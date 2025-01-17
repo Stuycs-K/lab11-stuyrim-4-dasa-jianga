@@ -1,8 +1,13 @@
 import java.util.Random;
 import java.util.*;
 public abstract class Adventurer{
+  private boolean live = true;
   private String name;
   private int HP,maxHP;
+
+  public boolean isAlive() {
+    return live;
+  }
 
   //Abstract methods are meant to be implemented in child classes.
   /*

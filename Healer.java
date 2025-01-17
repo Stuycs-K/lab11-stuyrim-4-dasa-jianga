@@ -70,12 +70,12 @@ public class Healer extends Adventurer{
     if (other.getHP() + 4 > other.getmaxHP()) {
       int heal = other.getmaxHP() - other.getHP();
       other.setHP(other.getmaxHP());
-      return this + " heals " + other + " and restores " + heal + " HP" + passivePerk();
+      return this + " heals " + other + " and restores " + heal + " HP." + passivePerk();
     }
     else {
       int heal = 4;
       other.setHP(other.getHP()+4);
-      return this + " heals " + other + " and restores " + heal + " HP" + passivePerk();
+      return this + " heals " + other + " and restores " + heal + " HP." + passivePerk();
     }
   }
   /*Restores 6 special and 1 hp to self.*/
