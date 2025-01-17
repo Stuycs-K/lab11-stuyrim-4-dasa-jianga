@@ -45,7 +45,7 @@ public class Mage extends Adventurer{
 @Override
   public String specialAttack(ArrayList<Adventurer> party, int a){
     if(this.getSpecial() < 20){
-      return this + " tried to use Earthquake, but does not have enough mana.";
+      return this + " tried to use Earthquake, but does not have enough mana. Instead " + attack(party.get(a));
     }
     this.setSpecial(this.getSpecial() - 20);
     this.restoreHP(3);
@@ -62,7 +62,7 @@ public class Mage extends Adventurer{
 @Override
   public String support(ArrayList<Adventurer> party, Adventurer other){
     if(this.mana < 10){
-      return this + " tried to use Double Strike on " + other + ", but does not have enough mana.";
+      return this + " tried to use Double Strike on " + other + ", but does not have enough mana. Instead " + attack(other);
     }
     this.mana -= 10;
     int rand = (int)(Math.random() * party.size());

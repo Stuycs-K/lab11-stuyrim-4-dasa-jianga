@@ -281,11 +281,11 @@ public class Game{
           msg = party.get(whichPlayer).specialAttack(enemies,target-1);
         }
         else if(command.equals("su") || command.equals("support")){
-          if(!(party.get(whichPlayer).getSpecialName().equals("Mana"))){
+          if(!(party.get(whichPlayer).getSpecialName().equals("Mana"))){ //if not mage, pass in your party, and pass in target for support
             msg = party.get(whichPlayer).support(party, party.get(target-1));
           }
           else{
-            msg = party.get(whichPlayer).support(enemies, party.get(target - 1));
+            msg = party.get(whichPlayer).support(enemies, party.get(target - 1)); //if mage, pass in the enemy party, and pass in the target for support
           }
         }
         //System.out.println(msg);
@@ -304,7 +304,12 @@ public class Game{
           msg = enemies.get(whichOpponent).attack(party.get(target));
         }
         else if (rand == 6 || rand == 7) { // 2/10 chance of support random
-          msg = enemies.get(whichOpponent).support(enemies,enemies.get(target));
+          if (enemies.get(whichOpponent).getSpecialName().equals("Mana")) {
+            msg = enemies.get(whichOpponent).support(party,enemies.get(target));
+          }
+          else {
+            msg = enemies.get(whichOpponent).support(enemies,enemies.get(target));
+          }
         }
         else { // 2/10 chance special
           msg = enemies.get(whichOpponent).specialAttack(party, target);

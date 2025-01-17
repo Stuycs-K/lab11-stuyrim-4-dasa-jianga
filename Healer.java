@@ -55,13 +55,13 @@ public class Healer extends Adventurer{
   Costs 20 Life Force. Healing past max HP is kept as overflow.*/
   public String specialAttack(ArrayList<Adventurer> party, int i){
     if(getSpecial() >= 20){
-      setSpecial(getSpecial()-20); 
+      setSpecial(getSpecial()-20);
       for (int k = 0; k < party.size(); k++) {
         party.get(k).setHP(party.get(k).getHP()+ 12);
       }
       return this + " healed whole team for 12 HP!" + passivePerk();
     }else{
-      return this + " tried to heal the whole team, but does not have enough life force." + passivePerk();
+      return this + " tried to heal the whole team, but does not have enough life force. Instead " + attack(party.get(i));
     }
 
   }
